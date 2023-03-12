@@ -5,13 +5,13 @@ public class CharacterMovement : MonoBehaviour
 {
     public Animator characterAnimator;
     public Transform characterTr;
-    public NavMeshAgent characterNavMesh;
-    public Joystick joystick;
-
-    [SerializeField] private float _MoveSpeed;
-    [SerializeField] private float _RotateSpeed;
+    public Rigidbody characterBody;
 
     private Vector3 _InputVector;
+
+    private Joystick _Joystick => SingletonController.singletonController.UIController.joystick;
+    private float _MoveSpeed => SingletonController.singletonController.config.characterMoveSpeed;
+    private float _RotateSpeed => SingletonController.singletonController.config.characterRotateSpeed;
 
     private void FixedUpdate()
     {
@@ -21,10 +21,10 @@ public class CharacterMovement : MonoBehaviour
 
     private void CharacterMove()
     {
-        _InputVector.x = joystick.Horizontal;
-        _InputVector.z = joystick.Vertical;
+        _InputVector.x = _Joystick.Horizontal;
+        _InputVector.z = _Joystick.Vertical;
 
-        characterNavMesh.Move(_InputVector * _MoveSpeed);
+        characterBody.velocity = _InputVector * _MoveSpeed;
         characterAnimator.SetBool("IsRun", _InputVector != Vector3.zero);
     }
 
