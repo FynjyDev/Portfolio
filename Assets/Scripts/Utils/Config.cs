@@ -8,6 +8,6 @@ public class Config : ScriptableObject
     public float characterRotateSpeed = 0.5f;
 
     [Header("Spots Pharameters")]
-    public float maxExtractResourceDelay;
-    public int maxReourceCountInSpot;
+    public int maxResourceCountInSpot;
+    public float minExtractResourceDelay, maxExtractResourceDelay;
 }

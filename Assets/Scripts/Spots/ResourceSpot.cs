@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishSpot : Spot
+public class ResourceSpot : Spot
 {
-    private float _ExtractResourceTime => SingletonController.singletonController.config.maxExtractResourceDelay;
-    private int _MaxResourcesCount => SingletonController.singletonController.config.maxReourceCountInSpot;
+    private float _MinExtractResourceTime => SingletonController.singletonController.config.minExtractResourceDelay;
+    private float _MaxExtractResourceTime => SingletonController.singletonController.config.maxExtractResourceDelay;
+    private int _MaxResourcesCount => SingletonController.singletonController.config.maxResourceCountInSpot;
 
     public ResourcesController.ResourceTypes resourceType;
 
@@ -43,7 +44,7 @@ public class FishSpot : Spot
     {
         while (tempResourcesCount < _MaxResourcesCount)
         {
-            float _tempExtractResourceTime = _ExtractResourceTime;
+            float _tempExtractResourceTime = Random.Range(_MinExtractResourceTime, _MaxResourcesCount);
 
             while (_tempExtractResourceTime > 0)
             {
