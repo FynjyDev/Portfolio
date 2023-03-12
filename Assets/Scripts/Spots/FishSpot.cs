@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FishSpot : Spot
@@ -10,9 +11,11 @@ public class FishSpot : Spot
 
     public int tempResourcesCount;
 
+    public List<GameObject> resourcesObjects;
+
     private void Start()
     {
-        StartCoroutine(ExstractResourceDelay());
+        StartCoroutine(ExstractResource());
     }
 
     public override void OnPlayerEnter()
@@ -21,14 +24,22 @@ public class FishSpot : Spot
         base.OnPlayerEnter();
     }
 
-
     public void GiveResources()
     {
         resourcesController.ChangeResourceValue(resourceType, tempResourcesCount);
-        tempResourcesCount = 0;
+
+        if (tempResourcesCount >= _MaxResourcesCount)
+        {
+            StopAllCoroutines();
+            tempResourcesCount = 0;
+            StartCoroutine(ExstractResource());
+        }
+        else tempResourcesCount = 0;
+
+        for (int i = 0; i < resourcesObjects.Count; i++) resourcesObjects[i].SetActive(false);
     }
 
-    public IEnumerator ExstractResourceDelay()
+    public IEnumerator ExstractResource()
     {
         while (tempResourcesCount < _MaxResourcesCount)
         {
@@ -40,7 +51,10 @@ public class FishSpot : Spot
                 yield return null;
             }
 
+            if (resourcesObjects.Count >= tempResourcesCount) resourcesObjects[tempResourcesCount].SetActive(true);
             tempResourcesCount++;
+            Debug.Log(tempResourcesCount);
         }
+
     }
 }
