@@ -423,7 +423,7 @@ Transform:
   - {fileID: 410087041}
   - {fileID: 832575519}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &695080880
 PrefabInstance:
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 881452802}
   - component: {fileID: 881452801}
   m_Layer: 5
-  m_Name: UI Controller
+  m_Name: <-UI Controller->
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,8 +706,8 @@ RectTransform:
   m_Children:
   - {fileID: 695080881}
   - {fileID: 968369459}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 2098956137}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 2098956137}
   - component: {fileID: 2098956138}
   m_Layer: 0
-  m_Name: Singlton Controller
+  m_Name: <---Singlton Controller--->
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,9 +995,10 @@ Transform:
   m_LocalPosition: {x: -0.2985262, y: 1.7481799, z: -1.1589289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 881452805}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2098956138
 MonoBehaviour:
