@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76246cb1bdc1c7498d035afb1292d8b, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  characterMoveSpeed: 4.75
+  characterMoveSpeed: 0.1
   characterRotateSpeed: 0.5
   maxResourceCountInSpot: 7
   minExtractResourceDelay: 2

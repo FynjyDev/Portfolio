@@ -5,7 +5,7 @@ public class CharacterMovement : MonoBehaviour
 {
     public Animator characterAnimator;
     public Transform characterTr;
-    public Rigidbody characterBody;
+    public NavMeshAgent characterAI;
 
     private Vector3 _InputVector;
 
@@ -24,7 +24,7 @@ public class CharacterMovement : MonoBehaviour
         _InputVector.x = _Joystick.Horizontal;
         _InputVector.z = _Joystick.Vertical;
 
-        characterBody.velocity = _InputVector * _MoveSpeed;
+        characterAI.Move(_InputVector * _MoveSpeed);
         characterAnimator.SetBool("IsRun", _InputVector != Vector3.zero);
     }
 
