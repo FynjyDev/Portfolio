@@ -17,4 +17,4 @@ MonoBehaviour:
   maxResourceCountInSpot: 7
   minExtractResourceDelay: 2
   maxExtractResourceDelay: 5
-  sellDelay: 2
+  sellDelay: 4
