@@ -20,6 +20,7 @@ public class SellSpot : Spot
     public override void OnPlayerExit()
     {
         base.OnPlayerExit();
+        progressImage.gameObject.SetActive(false);
         StopAllCoroutines();
     }
 
