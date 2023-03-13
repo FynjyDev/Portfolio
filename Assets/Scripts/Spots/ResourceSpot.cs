@@ -16,7 +16,7 @@ public class ResourceSpot : Spot
 
     private void Start()
     {
-        StartCoroutine(ExstractResource());
+        StartCoroutine(ExtractResource());
     }
 
     public override void OnPlayerEnter()
@@ -33,14 +33,14 @@ public class ResourceSpot : Spot
         {
             StopAllCoroutines();
             tempResourcesCount = 0;
-            StartCoroutine(ExstractResource());
+            StartCoroutine(ExtractResource());
         }
         else tempResourcesCount = 0;
 
         for (int i = 0; i < resourcesObjects.Count; i++) resourcesObjects[i].SetActive(false);
     }
 
-    public IEnumerator ExstractResource()
+    public IEnumerator ExtractResource()
     {
         while (tempResourcesCount < _MaxResourcesCount)
         {
@@ -48,13 +48,12 @@ public class ResourceSpot : Spot
 
             while (_tempExtractResourceTime > 0)
             {
-                _tempExtractResourceTime -= Time.deltaTime;
+                _tempExtractResourceTime -= Time.fixedDeltaTime;
                 yield return null;
             }
 
             if (resourcesObjects.Count >= tempResourcesCount) resourcesObjects[tempResourcesCount].SetActive(true);
             tempResourcesCount++;
-            Debug.Log(tempResourcesCount);
         }
 
     }

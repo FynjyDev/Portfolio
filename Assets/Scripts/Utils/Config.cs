@@ -7,7 +7,10 @@ public class Config : ScriptableObject
     public float characterMoveSpeed = 4.75f;
     public float characterRotateSpeed = 0.5f;
 
-    [Header("Spots Pharameters")]
+    [Header("Resource Spots Pharameters")]
     public int maxResourceCountInSpot;
-    public float minExtractResourceDelay, maxExtractResourceDelay;
+    public float minExtractResourceDelay, maxExtractResourceDelay; 
+    
+    [Header("Sell Spots Pharameters")]
+    public float sellDelay;
 }

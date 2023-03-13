@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourcesController : MonoBehaviour
 {
-    public enum ResourceTypes { fish, wood };
+    public enum ResourceTypes { fish, wood, coins };
 
     public List<ResourceInfo> resourceInfos;
 

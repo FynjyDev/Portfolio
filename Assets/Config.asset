@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterMoveSpeed: 4.75
   characterRotateSpeed: 0.5
-  maxExtractResourceDelay: 2
-  maxReourceCountInSpot: 5
+  maxResourceCountInSpot: 7
+  minExtractResourceDelay: 2
+  maxExtractResourceDelay: 5
+  sellDelay: 2
